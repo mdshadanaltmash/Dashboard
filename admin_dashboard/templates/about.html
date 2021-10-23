@@ -4,7 +4,7 @@
 <div class="jumbotron">
     <div align='center'>
         <h1>Hi {{ current_user.name }},</h1> <br>
-        <img align='center' src="{{url_for('static',filename='filename')}}">
+        <img align='center' src="{{ url_for('static',filename='profile_pics/'+current_user.profile_image) }}">
     </div>
   </div>
   <div class="jumbotron">

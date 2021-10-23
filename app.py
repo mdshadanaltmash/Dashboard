@@ -37,7 +37,7 @@ def about():
             username=current_user.username
             pic=add_profile_pic(form.profile_image.data,username)
         return(redirect(url_for('about')))
-    profile_image=url_for('static',filename='profile_pics/'+current_user.username)
+    profile_image=url_for('static',filename='profile_pics/'+current_user.profile_image)
     return render_template('about.html',form=form,profile_image=profile_image)
 
 @app.route('/login',methods=['GET','POST'])
@@ -52,7 +52,7 @@ def login():
         if user:
             if user.get('Password') == password:
                 if user.get('Account_Type')==form.account_type.data:
-                    login_user(User(user['Email'],user['Name'],user['Username'],user['Password']))
+                    login_user(User(user['Email'],user['Name'],user['Username'],user['Password'],user['Picture']))
                     flash('You have been Logged In!')
                     next=request.args.get('next')
                     if next is None or next[0]=='/':
@@ -79,11 +79,17 @@ def logout():
 def register():
     form=RegistrationForm()
     if form.validate_on_submit():
+        pic='static/profile_pics/default.png'
+        if form.profile_image.data:
+            print('yes')
+            username=current_user.username
+            pic=add_profile_pic(form.profile_image.data,username)
         user_details = {
             'Name': form.f_name.data,
             'Email': form.email.data,
             'Username': form.username.data,
             'Password': form.password.data,
+            'Picture': pic,
             'Gender': form.gender.data,
             'Education': form.education.data,
             'Hobbies': request.form.getlist("mycheckbox"),
@@ -108,7 +114,7 @@ def load_user(email):
     user = user_records.getUser(email)
     if not user:
         return None
-    return User(user['Email'],user['Name'],user['Username'],user['Password'])
+    return User(user['Email'],user['Name'],user['Username'],user['Password'],user['Picture'])
 
 if __name__=='__main__':
     app.run(debug=True)

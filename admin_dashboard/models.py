@@ -2,11 +2,12 @@ from flask_login import UserMixin
 import json
 
 class User(UserMixin):
-    def __init__(self,email,name,username,password):
+    def __init__(self,email,name,username,password,profile_image):
         self.email=email
         self.name=name
         self.username=username
         self.password=password
+        self.profile_image=profile_image
     def is_authenticated(self):
         return True
     def is_active(self):

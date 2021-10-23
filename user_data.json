@@ -7,6 +7,7 @@
             "Password": "mcd",
             "Gender": "M",
             "Education": "Masters",
+            "Picture": "default.png",
             "Hobbies": [
                 "Coding",
                 "Dancing",
@@ -22,6 +23,7 @@
             "Password": "msad",
             "Gender": "M",
             "Education": "Masters",
+            "Picture": "default.png",
             "Hobbies": [
                 "Coding",
                 "Playing Cricket",
@@ -37,6 +39,7 @@
             "Password": "mdshadan",
             "Gender": "M",
             "Education": "Masters",
+            "Picture": "mdshadan.png",
             "Hobbies": [
                 "Coding",
                 "Playing Cricket",
@@ -53,6 +56,7 @@
             "Password": "Admin",
             "Gender": "M",
             "Education": "Bachelors",
+            "Picture": "default.png",
             "Hobbies": [
                 "Coding",
                 "Dancing",
@@ -69,6 +73,7 @@
             "Password": "test",
             "Gender": "F",
             "Education": "Masters",
+            "Picture": "default.png",
             "Hobbies": [
                 "Reading",
                 "Swimming",
