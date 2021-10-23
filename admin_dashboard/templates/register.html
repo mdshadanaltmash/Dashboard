@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Please fill the details below to register!</h1>
+{% if msg|length> 1 %}
+<div class="alert alert-danger" role="alert">
+  {{msg}}
+</div>
+{% endif %}
+
+{% for field, errors in form.errors.items() %}
+<div class="alert alert-danger" role="alert">
+    {{ ', '.join(errors) }}
+</div>
+{% endfor %}
+    
+<div class="jumbotron">
+    <form class="form-group" method="POST">
+      {{form.hidden_tag()}}
+      <div class="form-group">
+        {{ form.f_name.label(class="form-control-label")}}
+        {{form.f_name(placeholder="Enter your full name" ,class="form-control")}}
+      </div>
+      <div class="form-group">
+        {{ form.email.label(class="form-control-label")}}
+        {{form.email(placeholder="Enter Registered email" ,class="form-control")}}
+      </div>
+      <div class="form-group">
+        {{ form.username.label(class="form-control-label")}}
+        {{form.username(placeholder="Enter username" ,class="form-control")}}
+      </div>
+      <div class="form-group">
+      {{form.password.label(class="form-control-label")}}
+      {{form.password(placeholder="Enter your password" ,class="form-control")}}
+      </div>
+      <div class="form-group">
+        {{ form.pass_confirm.label(class="form-control-label")}}
+        {{form.pass_confirm(placeholder="Confirm password" ,class="form-control")}}
+      </div>
+      <div class="form-group">
+        {{ form.gender.label(class="form-control-label")}}
+        {% for subfield in form.gender %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.education.label(class="form-control-label")}}
+        {{form.education(class="form-control")}}
+      </div>
+      <div class="form-group">
+        {{ form.hobbies.label(class="form-control-label")}} <br>
+          Coding <input type="checkbox" value="Coding" name="mycheckbox">
+          Dancing <input type="checkbox" value="Dancing" name="mycheckbox">
+          Reading <input type="checkbox" value="Reading" name="mycheckbox">
+          Swimming <input type="checkbox" value="Swimming" name="mycheckbox">
+          Photography <input type="checkbox" value="Photography" name="mycheckbox">
+          Playing Cricket <input type="checkbox" value="Playing Cricket" name="mycheckbox">
+          Playing Football <input type="checkbox" value="Playing Football" name="mycheckbox">
+          Singing<input type="checkbox" value="Singing" name="mycheckbox">
+          Cooking<input type="checkbox" value="Cooking" name="mycheckbox">
+          Trekking<input type="checkbox" value="Trekking" name="mycheckbox">
+          Writing <input type="checkbox" value="Writing" name="mycheckbox">
+        
+      </div><br>
+      <div>
+      {{form.submit(class="btn btn-primary")}}
+    </div >
+  </div>
+
+{% endblock %}

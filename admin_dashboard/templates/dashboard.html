@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to Dashboard</h1>
+<h3>Total User: {{ total_user }}</h3>
+
+{% if account_type == 'Admin' %}
+
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Username</th>
+          <th scope="col">Edit Activate/Deactivate</th>
+        </tr>
+      </thead>
+      {% for u in user %}
+      
+      <tbody>
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ u['Name'] }}</td>
+            <td>{{ u['Email'] }}</td>
+            <td>{{ u['Username'] }}</td>
+            <td>{{ u['Status'] }}</td>
+          </tr>
+
+      {% endfor %}
+      
+    </table>
+{% else %}
+    <h1>Welcome {{ current_user.name }}, to the Dashboard.</h1>
+
+    {% endif %}  
+
+{% endblock %}
+        
+    

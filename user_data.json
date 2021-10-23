@@ -1,0 +1,81 @@
+{
+    "user_details": [
+        {
+            "Name": "adjak",
+            "Email": "adv@gmci.com",
+            "Username": "abcd",
+            "Password": "mcd",
+            "Gender": "M",
+            "Education": "Masters",
+            "Hobbies": [
+                "Coding",
+                "Dancing",
+                "Reading"
+            ],
+            "Status": "Active",
+            "Account_Type": "Normal"
+        },
+        {
+            "Name": "Md Shadan",
+            "Email": "mdshaan@gmail.com",
+            "Username": "abcde",
+            "Password": "msad",
+            "Gender": "M",
+            "Education": "Masters",
+            "Hobbies": [
+                "Coding",
+                "Playing Cricket",
+                "Playing Football"
+            ],
+            "Status": "Active",
+            "Account_Type": "Normal"
+        },
+        {
+            "Name": "Md Shadan Altmash",
+            "Email": "mdshadanaltmash44@gmail.com",
+            "Username": "mdshadan",
+            "Password": "mdshadan",
+            "Gender": "M",
+            "Education": "Masters",
+            "Hobbies": [
+                "Coding",
+                "Playing Cricket",
+                "Cooking",
+                "Trekking"
+            ],
+            "Status": "Active",
+            "Account_Type": "Admin"
+        },
+        {
+            "Name": "Admin",
+            "Email": "admin@admin.com",
+            "Username": "admin",
+            "Password": "Admin",
+            "Gender": "M",
+            "Education": "Bachelors",
+            "Hobbies": [
+                "Coding",
+                "Dancing",
+                "Reading",
+                "Swimming"
+            ],
+            "Status": "Active",
+            "Account_Type": "Admin"
+        },
+        {
+            "Name": "Test",
+            "Email": "test@test.com",
+            "Username": "test",
+            "Password": "test",
+            "Gender": "F",
+            "Education": "Masters",
+            "Hobbies": [
+                "Reading",
+                "Swimming",
+                "Photography"
+            ],
+            "Status": "Active",
+            "Account_Type": "Normal"
+        }
+    ]
+}
