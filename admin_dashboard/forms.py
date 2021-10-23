@@ -5,6 +5,12 @@ from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed
 from admin_dashboard.models import UsersDB
 
+class UpdateAccount(FlaskForm):
+
+    profile_image=FileField('Profile Image ',validators=[FileAllowed(['jpg','png','jpeg'])])
+    submit=SubmitField('Update Image')
+
+
 class LoginForm(FlaskForm):
 
     email=StringField('Email',validators=[DataRequired(),Email(message="Not a valid Email Format.")])
@@ -26,6 +32,7 @@ class RegistrationForm(FlaskForm):
                  ('Diploma', 'Diploma')])
 
     hobbies = SelectMultipleField(u'Hobbies ', choices=[('cpp', 'C++'), ('py', 'Python'), ('text', 'Plain Text')])
+    account_type = RadioField('Account Type ',choices=[('Admin','Admin'),('Normal','Normal')])
     submit=SubmitField('Register Me!')
 
     def validate_email(self,email):
@@ -35,7 +42,3 @@ class RegistrationForm(FlaskForm):
     def validate_username(self,username):
         if UsersDB().getUserByUserName(self.username.data):
             raise ValidationError('Your username has already been registered!')
-
-class UpdateAccount(FlaskForm):
-    profile_image=FileField('Profile Image ',validators=[FileAllowed(['jpg','png','jpeg'])])
-    submit=SubmitField('Update Image')

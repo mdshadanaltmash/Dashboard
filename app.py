@@ -36,6 +36,8 @@ def about():
             print('yes')
             username=current_user.username
             pic=add_profile_pic(form.profile_image.data,username)
+            #current_user.profile_image=pic
+            UsersDB().update_image(current_user.email,pic)
         return(redirect(url_for('about')))
     profile_image=url_for('static',filename='profile_pics/'+current_user.profile_image)
     return render_template('about.html',form=form,profile_image=profile_image)
@@ -79,11 +81,11 @@ def logout():
 def register():
     form=RegistrationForm()
     if form.validate_on_submit():
-        pic='static/profile_pics/default.png'
-        if form.profile_image.data:
+        pic='default.png'
+        if form.picture.data:
             print('yes')
             username=current_user.username
-            pic=add_profile_pic(form.profile_image.data,username)
+            pic=add_profile_pic(form.picture.data,username)
         user_details = {
             'Name': form.f_name.data,
             'Email': form.email.data,
@@ -94,7 +96,7 @@ def register():
             'Education': form.education.data,
             'Hobbies': request.form.getlist("mycheckbox"),
             'Status': 'Active',
-            'Account_Type': 'Normal'
+            'Account_Type': form.account_type.data
         }
         
         print(user_details)

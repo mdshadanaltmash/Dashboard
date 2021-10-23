@@ -81,6 +81,36 @@
             ],
             "Status": "Active",
             "Account_Type": "Normal"
+        },
+        {
+            "Name": "Test1",
+            "Email": "Test1@test.com",
+            "Username": "test1",
+            "Password": "test1",
+            "Picture": "default.png",
+            "Gender": "M",
+            "Education": "Bachelors",
+            "Hobbies": [
+                "Coding",
+                "Dancing"
+            ],
+            "Status": "Active",
+            "Account_Type": "Normal"
+        },
+        {
+            "Name": "Test2",
+            "Email": "test2@test.com",
+            "Username": "test2",
+            "Password": "test2",
+            "Picture": "default.png",
+            "Gender": "F",
+            "Education": "Masters",
+            "Hobbies": [
+                "Coding",
+                "Dancing"
+            ],
+            "Status": "Active",
+            "Account_Type": "Admin"
         }
     ]
 }

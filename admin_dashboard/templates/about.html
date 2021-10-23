@@ -1,22 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% for field, errors in form.errors.items() %}
+<div class="alert alert-danger" role="alert">
+    {{ ', '.join(errors) }}
+</div>
+{% endfor %}
+
 <div class="jumbotron">
     <div align='center'>
         <h1>Hi {{ current_user.name }},</h1> <br>
         <img align='center' src="{{ url_for('static',filename='profile_pics/'+current_user.profile_image) }}">
     </div>
-  </div>
-  <div class="jumbotron">
+</div>
+
+<div class="jumbotron">
     <form class="form-group" method="POST">
-  <div class="form-group">
-    {{form.profile_image.label(class='form-group')}}
-    {{form.profile_image(class='form-control')}}<br>
-  </div>
-      
-  <div class="form-group">
-    {{form.submit(class='form-control')}}
-  </div>
+        <div class="form-group">
+            {{ form.hidden_tag() }}
+            {{form.profile_image.label(class='form-group')}}
+            {{form.profile_image(class='form-control')}}<br>
+        </div>        
+        <div class="form-group">
+        {{form.submit(class='form-control')}}
+        </div>
+    </form>
+</div>
 {% endblock %}
         
     

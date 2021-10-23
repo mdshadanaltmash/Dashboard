@@ -39,3 +39,10 @@ class UsersDB(UserMixin):
                     return user
             else:
                 return None
+    
+    def update_image(self, email, image):
+        with open ('user_data.json','r+') as data_file:
+            file_data=json.load(data_file)
+            for user in file_data['user_details']:
+                if user.get('Email') == email:
+                    user['Picture']=image

@@ -43,7 +43,7 @@
         {{form.picture(class="form-control")}}
       </div>
       <div class="form-group">
-        {{ form.gender.label(class="form-control-label")}}
+        {{ form.gender.label(class="form-control-label")}} <br>
         {% for subfield in form.gender %}
         <tr>
             <td>{{ subfield }}</td>
@@ -70,6 +70,15 @@
           Writing <input type="checkbox" value="Writing" name="mycheckbox">
         
       </div><br>
+      <div class="form-group">
+        {{ form.account_type.label(class="form-control-label")}} <br>
+        {% for subfield in form.account_type %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+      </div>
       <div>
       {{form.submit(class="btn btn-primary")}}
     </div >
